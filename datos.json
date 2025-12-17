@@ -1,0 +1,317 @@
+[
+    {
+        "nombre": "Albert Einstein",
+        "eventos": [
+            {
+                "año": 1879,
+                "descripcion": "Nacimiento en Ulm, Alemania."
+            },
+            {
+                "año": 1905,
+                "descripcion": "Publicación de la Teoría de la Relatividad Especial."
+            },
+            {
+                "año": 1921,
+                "descripcion": "Recibe el Premio Nobel de Física."
+            },
+            {
+                "año": 1955,
+                "descripcion": "Fallecimiento en Princeton, Estados Unidos."
+            }
+        ]
+    },
+    {
+        "nombre": "Marie Curie",
+        "eventos": [
+            {
+                "año": 1867,
+                "descripcion": "Nacimiento en Varsovia, Polonia."
+            },
+            {
+                "año": 1903,
+                "descripcion": "Gana el Premio Nobel de Física."
+            },
+            {
+                "año": 1911,
+                "descripcion": "Gana el Premio Nobel de Química."
+            }
+        ]
+    },
+    {
+        "nombre": "Alan Turing",
+        "eventos": [
+            {
+                "año": 1912,
+                "descripcion": "Nacimiento en Londres, Reino Unido."
+            },
+            {
+                "año": 1936,
+                "descripcion": "Propone el concepto de la Máquina de Turing."
+            },
+            {
+                "año": 1954,
+                "descripcion": "Fallecimiento en Wilmslow, Reino Unido."
+            }
+        ]
+    },
+    {
+        "nombre": "Mahatma Gandhi",
+        "eventos": [
+            {
+                "año": 1869,
+                "descripcion": "Nacimiento en Porbandar, India."
+            },
+            {
+                "año": 1947,
+                "descripcion": "India logra la independencia del dominio británico."
+            },
+            {
+                "año": 1948,
+                "descripcion": "Es asesinado en Nueva Delhi."
+            }
+        ]
+    },
+    {
+    "nombre": "Mirtha Legrand",
+    "eventos": [
+      { "año": 1927, "descripcion": "Nacimiento en Villa Cañás, Argentina." },
+      { "año": 1968, "descripcion": "Comienza su histórico programa de televisión." }
+    ]
+    },
+    {
+        "nombre": "José de San Martín",
+        "eventos": [
+        { "año": 1778, "descripcion": "Nacimiento en Yapeyú." },
+        { "año": 1817, "descripcion": "Cruza los Andes para liberar Chile." },
+        { "año": 1850, "descripcion": "Fallecimiento en Boulogne-sur-Mer, Francia." }
+        ]
+    },
+    {
+        "nombre": "Julio César",
+        "eventos": [
+        { "año": -100, "descripcion": "Nacimiento en Roma." },
+        { "año": -49, "descripcion": "Cruza el Rubicón." },
+        { "año": -44, "descripcion": "Es asesinado en el Senado." }
+        ]
+    },
+    {
+        "nombre": "Cleopatra",
+        "eventos": [
+        { "año": -69, "descripcion": "Nacimiento en Egipto." },
+        { "año": -48, "descripcion": "Alianza política y amorosa con Julio César." },
+        { "año": -30, "descripcion": "Muerte tras la derrota frente a Roma." }
+        ]
+    },
+    {
+        "nombre": "Napoleón Bonaparte",
+        "eventos": [
+        { "año": 1769, "descripcion": "Nacimiento en Córcega." },
+        { "año": 1804, "descripcion": "Se proclama Emperador de Francia." },
+        { "año": 1821, "descripcion": "Fallecimiento en la isla de Santa Elena." }
+        ]
+    },
+    {
+        "nombre": "Winston Churchill",
+        "eventos": [
+            {
+                "año": 1874,
+                "descripcion": "Nacimiento en el Palacio de Blenheim."
+            },
+            {
+                "año": 1940,
+                "descripcion": "Se convierte en Primer Ministro del Reino Unido."
+            },
+            {
+                "año": 1965,
+                "descripcion": "Fallecimiento en Londres."
+            }
+        ]
+    },
+    {
+        "nombre": "Franklin D. Roosevelt",
+        "eventos": [
+            {
+                "año": 1882,
+                "descripcion": "Nacimiento en Hyde Park, Nueva York."
+            },
+            {
+                "año": 1933,
+                "descripcion": "Asume como 32.º presidente de los Estados Unidos."
+            },
+            {
+                "año": 1945,
+                "descripcion": "Fallecimiento en Warm Springs, Georgia."
+            }
+        ]
+    },
+    {
+        "nombre": "Adolf Hitler",
+        "eventos": [
+            {
+                "año": 1889,
+                "descripcion": "Nacimiento en Braunau am Inn, Austria."
+            },
+            {
+                "año": 1933,
+                "descripcion": "Es nombrado Canciller de Alemania."
+            },
+            {
+                "año": 1945,
+                "descripcion": "Suicidio en el búnker de Berlín."
+            }
+        ]
+    },
+    {
+        "nombre": "Nelson Mandela",
+        "eventos": [
+            {
+                "año": 1918,
+                "descripcion": "Nacimiento en Mvezo, Sudáfrica."
+            },
+            {
+                "año": 1964,
+                "descripcion": "Es condenado a cadena perpetua en el Juicio de Rivonia."
+            },
+            {
+                "año": 1994,
+                "descripcion": "Se convierte en el primer presidente negro de Sudáfrica."
+            }
+        ]
+    },
+    {
+        "nombre": "Charles Chaplin",
+        "eventos": [
+            {
+                "año": 1889,
+                "descripcion": "Nacimiento en Londres, Reino Unido."
+            },
+            {
+                "año": 1940,
+                "descripcion": "Estreno de 'El Gran Dictador'."
+            },
+            {
+                "año": 1977,
+                "descripcion": "Fallecimiento en Suiza."
+            }
+        ]
+    },
+    {
+        "nombre": "Walt Disney",
+        "eventos": [
+            {
+                "año": 1901,
+                "descripcion": "Nacimiento en Chicago, Illinois."
+            },
+            {
+                "año": 1928,
+                "descripcion": "Estreno de 'Steamboat Willie', debut de Mickey Mouse."
+            },
+            {
+                "año": 1955,
+                "descripcion": "Inauguración de Disneyland en California."
+            }
+        ]
+    },
+    {
+        "nombre": "Marilyn Monroe",
+        "eventos": [
+            {
+                "año": 1926,
+                "descripcion": "Nacimiento en Los Ángeles, California."
+            },
+            {
+                "año": 1953,
+                "descripcion": "Protagoniza 'Los caballeros las prefieren rubias'."
+            },
+            {
+                "año": 1962,
+                "descripcion": "Fallecimiento en Brentwood, Los Ángeles."
+            }
+        ]
+    },
+    {
+        "nombre": "Asa Akira",
+        "eventos": [
+            {
+                "año": 1986,
+                "descripcion": "Nacimiento en Manhattan, Nueva York."
+            },
+            {
+                "año": 2013,
+                "descripcion": "Recibe el premio a Artista Femenina del Año por AVN."
+            },
+            {
+                "año": 2014,
+                "descripcion": "Publicación de su autobiografía 'Insatiable'."
+            }
+        ]
+    },
+    {
+        "nombre": "Javier Milei",
+        "eventos": [
+            {
+                "año": 1970,
+                "descripcion": "Nacimiento en Buenos Aires, Argentina."
+            },
+            {
+                "año": 2021,
+                "descripcion": "Es electo diputado nacional por la Ciudad de Buenos Aires."
+            },
+            {
+                "año": 2023,
+                "descripcion": "Asume la presidencia de la Nación Argentina."
+            }
+        ]
+    },
+    {
+        "nombre": "Giorgia Meloni",
+        "eventos": [
+            {
+                "año": 1977,
+                "descripcion": "Nacimiento en Roma, Italia."
+            },
+            {
+                "año": 2014,
+                "descripcion": "Se convierte en presidenta del partido Fratelli d'Italia."
+            },
+            {
+                "año": 2022,
+                "descripcion": "Asume como Presidenta del Consejo de Ministros de Italia."
+            }
+        ]
+    },
+    {
+        "nombre": "Adam Sandler",
+        "eventos": [
+            {
+                "año": 1966,
+                "descripcion": "Nacimiento en Nueva York, Estados Unidos."
+            },
+            {
+                "año": 1990,
+                "descripcion": "Se une al elenco de Saturday Night Live."
+            },
+            {
+                "año": 1995,
+                "descripcion": "Protagoniza la película 'Billy Madison'."
+            }
+        ]
+    },
+    {
+        "nombre": "Chris Pratt",
+        "eventos": [
+            {
+                "año": 1979,
+                "descripcion": "Nacimiento en Virginia, Minnesota."
+            },
+            {
+                "año": 2009,
+                "descripcion": "Comienza su papel de Andy Dwyer en 'Parks and Recreation'."
+            },
+            {
+                "año": 2014,
+                "descripcion": "Protagoniza 'Guardianes de la Galaxia' como Star-Lord."
+            }
+        ]
+    }
+]

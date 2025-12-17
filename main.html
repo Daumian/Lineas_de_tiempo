@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Línea de Tiempo Histórica Escalonada</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Línea de Tiempo de Figuras Históricas</h1>
+    
+    <div class="buscador-contenedor">
+        <input type="text" id="filtro-figuras" placeholder="Escribe para buscar una figura...">
+    </div>
+
+    <div id="botonera" class="botonera">
+        </div>
+
+    <div class="espacio-inferior"></div>
+    
+    <div class="zoom-contenedor">
+        <label for="zoom-slider">Zoom (Altura): </label>
+        <input type="range" id="zoom-slider" min="500" max="5000" value="1200" step="100">
+        <span id="zoom-valor">1200px</span>
+    </div>
+
+
+    <div id="linea-tiempo" class="linea-tiempo-contenedor">
+        </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

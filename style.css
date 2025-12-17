@@ -1,0 +1,228 @@
+/* ... (Mantener estilos anteriores para body, botonera, etc.) ... */
+
+/* --- Línea de Tiempo (Visualización) --- */
+
+/* Contenedor principal para la visualización, ahora debe ser relative */
+.linea-tiempo-contenedor {
+    display: flex;
+    position: relative; /* ¡IMPORTANTE! Es la referencia para posicionar los eventos */
+    padding-left: 100px; /* Espacio para las etiquetas de año (escala) */
+    min-height: 800px; /* Altura mínima para mostrar la línea de tiempo, ajusta según necesidad */
+    border-top: 1px solid #444; /* Línea superior de la escala */
+    border-bottom: 1px solid #444; /* Línea inferior de la escala */
+    margin-top: 30px;
+}
+
+
+
+/* --- Escala de Años (Eje Y) --- */
+.escala-año {
+    position: absolute;
+    left: 0;
+    width: 80px; /* Ancho para el texto del año */
+    text-align: right;
+    font-weight: bold;
+    color: #1a1a1a; /* CAMBIO: Color negro oscuro para los números */
+    transform: translateY(-50%); /* Centra el texto del año verticalmente */
+}
+/* La línea horizontal que conecta el año con la columna */
+.escala-año::after {
+    content: '';
+    position: absolute;
+    right: -20px; /* Se extiende hacia las columnas */
+    top: 50%;
+    width: 20px; 
+    height: 1px;
+    background-color: #1a1a1a; /* CAMBIO: Color negro oscuro para la línea */
+}
+
+
+/* --- ---e --- */
+
+/* ---COLUMNAS --- */
+
+/* --- Columnas de Figuras (Los carriles verticales) --- */
+.columna-figura {
+    min-width: 200px; /* Ancho para cada columna */
+    padding: 0 10px;
+    text-align: center;
+    position: relative;
+    border-right: 1px dashed #3a3a3a; /* Separador entre columnas (opcional) */
+}
+
+.nombre-figura {
+    font-weight: bold;
+    color: #000000;             /* Texto negro */
+    background-color: #FFFFFF;  /* Fondo blanco */
+    border: 2px solid #000000;  /* Borde negro (puedes ajustar el grosor a 1px) */
+    
+    /* Espaciado y Layout */
+    margin-bottom: 10px;
+    padding: 10px;              /* Añadí padding a los lados para que el texto no toque el borde */
+    
+    /* Sticky behavior */
+    position: sticky;
+    top: 0; 
+    z-index: 100;
+    
+    /* Opcional: asegura que el borde no agrande la caja */
+    box-sizing: border-box;
+}
+
+
+
+/* --- Evento Posicionado Absolutamente --- */
+
+/* --- CAJITAAAS --- */
+
+/* --- Evento Posicionado Absolutamente --- */
+.evento {
+    position: absolute; 
+    left: 50%;
+    width: 180px; 
+    transform: translateX(-50%);
+    z-index: 10; /* Tu valor actual */
+    margin: 0; 
+    transition: z-index 0.1s; /* Suaviza el cambio de capa */
+}
+
+/* NUEVA CLASE: Trae al frente el evento clickeado */
+.evento.seleccionado {
+    z-index: 100; /* Mucho mayor que 10 para asegurar que esté al frente */
+}
+
+.caja-evento {
+    background-color: #2ecc71;
+    color: #333;
+    padding: 8px;
+    border-radius: 5px;
+    border: none; 
+    font-size: 0.9em;
+    min-height: 40px;
+    cursor: pointer; /* Indica que es clickeable */
+}
+
+
+
+/* El punto de conexión */
+.punto-conexion {
+    width: 8px;
+    height: 8px;
+    background-color: #34495e;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 20;
+}
+
+/* La línea vertical que pasa por los eventos */
+.linea-vertical {
+    width: 2px;
+    background-color: #7f8c8d; 
+    position: absolute;
+    top: 0; 
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 5;
+}
+
+/* Removemos la etiqueta-año de la columna ya que ahora es global */
+.etiqueta-año {
+    display: none; 
+}
+
+/* Estilo del input del buscador */
+.buscador-contenedor {
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #3e3e3e;
+    border-radius: 5px;
+}
+
+#filtro-figuras {
+    width: 98%; /* Ocupa casi todo el ancho del contenedor */
+    padding: 10px;
+    border: 1px solid #555;
+    border-radius: 4px;
+    background-color: #4e4e4e;
+    color: white;
+    font-size: 1em;
+}
+
+#filtro-figuras::placeholder {
+    color: #bbb;
+}
+
+.zoom-contenedor {
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #3e3e3e;
+    border-radius: 5px;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+#zoom-slider {
+    flex-grow: 1;
+    cursor: pointer;
+}
+
+/* Mejora: Hacer que los eventos no se solapen tanto al hacer zoom out */
+.caja-evento {
+    /* ... estilos anteriores ... */
+    pointer-events: auto;
+    transition: transform 0.2s ease;
+}
+
+.caja-evento:hover {
+    z-index: 100;
+    transform: scale(1.05);
+}
+
+/* Controla el tamaño del hueco aquí */
+.espacio-inferior {
+    height: 30px; /* Cambia este valor para más o menos espacio */
+    width: 100%;
+}
+
+/* Opcional: Asegurar que la botonera no esté pegada al buscador */
+.botonera {
+    margin-top: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+/* Estilo base de los botones */
+.boton-figura {
+    background-color: #4e4e4e;
+    color: white;
+    border: 1px solid #666;
+    padding: 8px 15px;
+    margin: 1px;
+    border-radius: 1px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+/* Efecto Hover (al pasar el mouse) */
+.boton-figura:hover {
+    background-color: #5e5e5e;
+}
+
+/* --- ESTADO ACTIVO (Botón Presionado) --- */
+.boton-figura.activo {
+    background-color: #51d1f6; /* El mismo verde de tus eventos */
+    color: #1a1a1a;
+    border-color: #51d1f6;
+    font-weight: bold;
+    /* Sombra interna para dar efecto de "hundido" o presionado */
+    box-shadow: inset 0 3px 5px rgba(0,0,0,0.3);
+    transform: translateY(2px); /* Se mueve ligeramente hacia abajo */
+}
