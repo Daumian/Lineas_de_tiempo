@@ -43,11 +43,11 @@
 
 /* --- Columnas de Figuras (Los carriles verticales) --- */
 .columna-figura {
-    min-width: 200px; /* Ancho para cada columna */
+    min-width: 300px; /* Antes era 200px. Cámbialo a 300px o 350px */
     padding: 0 10px;
     text-align: center;
     position: relative;
-    border-right: 1px dashed #3a3a3a; /* Separador entre columnas (opcional) */
+    border-right: 1px dashed #3a3a3a;
 }
 
 .nombre-figura {
@@ -79,11 +79,11 @@
 .evento {
     position: absolute; 
     left: 50%;
-    width: 180px; 
+    width: 280px; /* Antes era 180px. Ajustalo para que sea un poco menor que la columna */
     transform: translateX(-50%);
-    z-index: 10; /* Tu valor actual */
+    z-index: 10;
     margin: 0; 
-    transition: z-index 0.1s; /* Suaviza el cambio de capa */
+    transition: z-index 0.1s;
 }
 
 /* NUEVA CLASE: Trae al frente el evento clickeado */
@@ -225,4 +225,61 @@
     /* Sombra interna para dar efecto de "hundido" o presionado */
     box-shadow: inset 0 3px 5px rgba(0,0,0,0.3);
     transform: translateY(2px); /* Se mueve ligeramente hacia abajo */
+}
+
+
+
+
+
+/* En style.css */
+
+.edad-texto {
+    display: block;       /* Fuerza un salto de línea */
+    font-size: 0.85em;    /* Un poco más pequeño que el texto normal */
+    margin-top: 4px;      /* Espacio arriba */
+    font-style: italic;   /* Cursiva para diferenciarlo */
+    opacity: 0.9;         /* Ligeramente más suave */
+}
+
+.boton-expandir {
+    background-color: #4A90E2; /* Un color azul para diferenciarlo */
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    margin: 5px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.boton-expandir:hover {
+    background-color: #357ABD;
+}
+
+
+/* Contenedor para posicionar arriba a la derecha */
+.contenedor-donar-fijo {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+/* Estilo del botón */
+.boton-donar {
+    background-color: #ffc107; /* Color amarillo llamativo */
+    color: #000;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.boton-donar:hover {
+    background-color: #e0a800;
+    transform: scale(1.05);
 }

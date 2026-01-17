@@ -11,6 +11,9 @@ let alturaActualPx = 1200; // Ahora es variable, no constante
 let figurasHistoricas = []; // Almacenará los datos del JSON
 let figurasActivas = new Set(); // Conjunto para saber qué figuras están visibles
 
+let mostrarTodo = false; // Estado para saber si expandimos la lista
+const LIMITE_INICIAL = 30; // Cantidad de botones a mostrar al inicio
+
 // Altura del contenedor para el mapeo de la escala de tiempo (debe coincidir con min-height en CSS)
 const ALTURA_CONTENEDOR_PX = 1200; 
 
@@ -112,6 +115,65 @@ function generarBotonera() {
     });
 }
 
+
+
+function generarBotonera(filtro = "") {
+    botoneraElement.innerHTML = ''; 
+    const textoFiltro = filtro.toLowerCase();
+
+    // 1. Filtramos los datos según la búsqueda
+    let figurasFiltradas = figurasHistoricas.filter(f => 
+        f.nombre.toLowerCase().includes(textoFiltro)
+    );
+
+    // 2. Si no hay búsqueda, aplicamos el límite de 30
+    let figurasAMostrar = figurasFiltradas;
+    let mostrarBotonMas = false;
+
+    if (textoFiltro === "" && !mostrarTodo && figurasFiltradas.length > LIMITE_INICIAL) {
+        figurasAMostrar = figurasFiltradas.slice(0, LIMITE_INICIAL);
+        mostrarBotonMas = true;
+    }
+
+    // 3. Crear los botones
+    figurasAMostrar.forEach(figura => {
+        const boton = document.createElement('button');
+        boton.classList.add('boton-figura');
+        if (figurasActivas.has(figura.nombre)) boton.classList.add('activo');
+        
+        boton.textContent = figura.nombre;
+        boton.dataset.nombre = figura.nombre; 
+        boton.addEventListener('click', () => toggleFigura(figura.nombre));
+        botoneraElement.appendChild(boton);
+    });
+
+    // 4. Añadir botón "+" si es necesario
+    if (mostrarBotonMas) {
+        const botonMas = document.createElement('button');
+        botonMas.classList.add('boton-expandir'); // Clase para darle estilo
+        botonMas.textContent = `+${figurasFiltradas.length - LIMITE_INICIAL} más`;
+        botonMas.onclick = () => {
+            mostrarTodo = true;
+            generarBotonera(); // Recarga la botonera completa
+        };
+        botoneraElement.appendChild(botonMas);
+    }
+}
+
+/**
+ * Actualizamos el buscador para que llame a generarBotonera
+ */
+function filtrarBotonera() {
+    const texto = filtroInput.value;
+    // Si el usuario borra la búsqueda, volvemos al estado de "no mostrar todo"
+    if (texto === "") mostrarTodo = false; 
+    generarBotonera(texto);
+}
+
+// Asegúrate de que en cargarDatos() se llame a generarBotonera() sin cambios
+
+
+
 /**
  * Genera las etiquetas de año en el lado izquierdo (Eje Y) para la escala compartida.
  */
@@ -193,10 +255,30 @@ function renderizarLineasTiempo() {
                 this.classList.add('seleccionado');
             });
             
+
+
+
             const caja = document.createElement('div');
             caja.classList.add('caja-evento');
-            caja.innerHTML = `<strong>${evento.año}:</strong> ${evento.descripcion}`;
+
+
+            // 1. Buscamos el nacimiento. 
+            // Si "figuraData.nacimiento" no existe (o es undefined), usamos el año del primer evento.
+            const nacimiento = figuraData.nacimiento ? figuraData.nacimiento : figuraData.eventos[0].año;
             
+            // 2. Calculamos la edad
+            const edad = evento.año - nacimiento;
+            
+            let htmlEdad = '';
+            // Solo mostramos si la edad es un número válido y mayor a 0
+            if (!isNaN(edad) && edad > 0) {
+                htmlEdad = `<br><span class="edad-texto">(${edad} años)</span>`;
+            }
+
+            caja.innerHTML = `<strong>${evento.año}:</strong> ${evento.descripcion}${htmlEdad}`;
+            
+            // --- FIN DEL CÓDIGO ---
+
             eventoDiv.appendChild(caja);
             columna.appendChild(eventoDiv);
         });
@@ -204,7 +286,6 @@ function renderizarLineasTiempo() {
         lineaTiempoContenedor.appendChild(columna);
     });
 }
-
 
 // ==============================================
 // 4. FUNCIONES DE CONTROL Y ARRANQUE
