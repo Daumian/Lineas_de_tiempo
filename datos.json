@@ -23,6 +23,18 @@
   ]
   },
   {
+  "nombre": "Jeffrey Epstein",
+  "nacimiento": 1953,
+  "eventos": [
+    { "año": 1953, "descripcion": "Nacimiento en Brooklyn, Nueva York, Estados Unidos." },
+    { "año": 1974, "descripcion": "Comienza a trabajar como profesor en una escuela privada pese a no tener título universitario." },
+    { "año": 1982, "descripcion": "Funda su firma financiera y empieza a relacionarse con millonarios y figuras influyentes." },
+    { "año": 2008, "descripcion": "Se declara culpable de delitos sexuales con menores y cumple una condena reducida." },
+    { "año": 2019, "descripcion": "Es arrestado nuevamente por tráfico sexual de menores a nivel federal." },
+    { "año": 2019, "descripcion": "Fallece en una cárcel de Nueva York en circunstancias oficialmente declaradas como suicidio." }
+  ]
+  },
+  {
   "nombre": "Marie Curie",
   "nacimiento": 1867,
   "eventos": [
