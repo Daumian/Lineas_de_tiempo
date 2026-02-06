@@ -299,32 +299,48 @@
     }
 }
 
+/* --- SOLUCIÓN PARA MÓVIL --- */
 @media (max-width: 600px) {
-    .columna-figura {
-        min-width: 120px; /* Ancho mínimo para que no se encimen */
-        margin-right: 5px;
+    /* 1. Eliminamos el cuadro blanco feo de los nombres */
+    .nombre-columna {
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+        color: #51d1f6; /* Color llamativo pero sin caja */
+        font-size: 0.9rem;
+        width: auto;
+        white-space: nowrap;
     }
 
-    .evento-marcador {
-        font-size: 0.7rem; /* Texto más pequeño para los eventos */
-        padding: 4px;
-    }
-}
-
-@media (max-width: 600px) {
-    .botonera {
-        max-height: 200px;
-        overflow-y: auto;
+    /* 2. Evitamos que las columnas se encimen y permitimos scroll */
+    .linea-tiempo-contenedor {
+        padding-left: 60px; /* Espacio justo para los años */
         display: flex;
-        flex-wrap: wrap;
-        gap: 5px;
-        padding: 10px;
-        border: 1px solid #ddd;
-        border-radius: 8px;
+        overflow-x: auto; /* Si activas varios, te mueves de costado */
+        gap: 20px;
     }
-    
-    .boton-figura {
-        padding: 6px 10px;
-        font-size: 0.8rem;
+
+    .columna-figura {
+        min-width: 160px; /* Les damos un ancho mínimo para que el texto respire */
+        border-left: 2px dashed #444; /* Una línea sutil para guiar el ojo */
+    }
+
+    /* 3. ARREGLO DE LOS TEXTOS VERDES (Solapamiento) */
+    .evento-marcador {
+        width: 140px;      /* Ancho fijo para que no se pisen */
+        font-size: 0.75rem;
+        line-height: 1.1;
+        padding: 6px;
+        left: 10px !important; /* Los alejamos un poco de la línea central */
+        border-radius: 4px;
+        /* Evitamos que el texto largo rompa el diseño */
+        word-wrap: break-word; 
+        box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+    }
+
+    /* 4. Ajuste de la escala de años */
+    .escala-año {
+        font-size: 0.7rem;
+        width: 50px;
     }
 }
