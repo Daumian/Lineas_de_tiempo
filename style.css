@@ -2,6 +2,14 @@
 
 /* --- Línea de Tiempo (Visualización) --- */
 
+
+body {
+    padding-bottom: 100px; 
+}
+
+
+
+
 /* Contenedor principal para la visualización, ahora debe ser relative */
 .linea-tiempo-contenedor {
     display: flex;
@@ -157,15 +165,29 @@
 }
 
 .zoom-contenedor {
-    margin-bottom: 20px;
-    padding: 10px;
-    background-color: #3e3e3e;
-    border-radius: 5px;
+    position: fixed;
+    /* Lo anclamos a los bordes para evitar saltos de centrado */
+    bottom: 15px;
+    left: 10px;
+    right: 10px;
+    
+    /* Diseño */
+    background-color: rgba(30, 30, 30, 0.95);
     color: white;
+    padding: 12px 15px;
+    border-radius: 12px;
+    z-index: 9999; /* Por encima de cualquier evento o nombre */
     display: flex;
     align-items: center;
     gap: 15px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.6);
+    
+    /* Evita que el zoom del navegador interfiera */
+    touch-action: none; 
 }
+
+
+
 
 #zoom-slider {
     flex-grow: 1;
@@ -282,4 +304,73 @@
 .boton-donar:hover {
     background-color: #e0a800;
     transform: scale(1.05);
+}
+
+
+
+
+
+/*MOBIL*/
+
+/* --- AJUSTES PARA MÓVIL (Pantallas menores a 600px) --- */
+@media (max-width: 600px) {
+    
+    /* 1. Reducimos el ancho de las columnas */
+    .columna-figura {
+        min-width: 160px; /* Mucho más estrecho que los 300px originales */
+        padding: 0 5px;
+    }
+
+    /* 2. Hacemos los nombres de las figuras más compactos */
+    .nombre-figura {
+        font-size: 0.85em;
+        padding: 5px;
+        margin-bottom: 5px;
+    }
+
+    /* 3. Ajustamos el ancho de las cajas de evento */
+    .evento {
+        width: 145px; /* Ajustado para que quepa bien dentro de la columna de 160px */
+    }
+
+    /* 4. Reducimos el texto y el relleno dentro de las cajas verdes */
+    .caja-evento {
+        font-size: 0.75em; /* Texto más pequeño para que no desborde */
+        padding: 5px 8px;
+        min-height: 30px;
+        line-height: 1.2;
+    }
+
+    /* 5. Texto de edad más discreto */
+    .edad-texto {
+        font-size: 0.7em;
+        margin-top: 2px;
+    }
+
+    /* 6. Reducimos el espacio de la escala lateral para ganar ancho */
+    .linea-tiempo-contenedor {
+        padding-left: 60px; /* Bajamos de los 100px originales */
+    }
+
+    .escala-año {
+        width: 50px;
+        font-size: 0.8em;
+    }
+}
+
+/* Ajuste para pantallas grandes (PC) */
+@media (min-width: 768px) {
+    .zoom-contenedor {
+        left: 50%;
+        right: auto;
+        width: 350px;
+        transform: translateX(-50%); /* Solo en PC donde no hay scroll horizontal lateral */
+    }
+}
+
+/* Estilo para que el slider sea más fácil de tocar en móvil */
+#zoom-slider {
+    flex-grow: 1;
+    height: 10px;
+    cursor: pointer;
 }

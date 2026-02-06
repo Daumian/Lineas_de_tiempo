@@ -117,29 +117,49 @@ function generarBotonera() {
 
 
 
+// 1. Primero, cambia la definición de la constante por una variable o función
+// Borra: const LIMITE_INICIAL = 30;
+
+// 2. Modifica la función generarBotonera para calcular el límite al momento y ordenar activos primero
 function generarBotonera(filtro = "") {
     botoneraElement.innerHTML = ''; 
     const textoFiltro = filtro.toLowerCase();
 
-    // 1. Filtramos los datos según la búsqueda
+    // 1. DETERMINAR LÍMITE DINÁMICO
+    const limiteDinamico = window.innerWidth < 600 ? 8 : 30;
+
+    // 2. FILTRAR por búsqueda
     let figurasFiltradas = figurasHistoricas.filter(f => 
         f.nombre.toLowerCase().includes(textoFiltro)
     );
 
-    // 2. Si no hay búsqueda, aplicamos el límite de 30
+    // 3. ORDENAR: Los activos (celestes) primero
+    figurasFiltradas.sort((a, b) => {
+        const aActiva = figurasActivas.has(a.nombre);
+        const bActiva = figurasActivas.has(b.nombre);
+        
+        if (aActiva && !bActiva) return -1; // 'a' sube
+        if (!aActiva && bActiva) return 1;  // 'b' sube
+        return 0; // Mantienen su posición si ambos son iguales
+    });
+
     let figurasAMostrar = figurasFiltradas;
     let mostrarBotonMas = false;
 
-    if (textoFiltro === "" && !mostrarTodo && figurasFiltradas.length > LIMITE_INICIAL) {
-        figurasAMostrar = figurasFiltradas.slice(0, LIMITE_INICIAL);
+    // 4. APLICAR LÍMITE (solo si no se está buscando y no se ha dado a "+ más")
+    if (textoFiltro === "" && !mostrarTodo && figurasFiltradas.length > limiteDinamico) {
+        figurasAMostrar = figurasFiltradas.slice(0, limiteDinamico);
         mostrarBotonMas = true;
     }
 
-    // 3. Crear los botones
+    // 5. CREAR BOTONES
     figurasAMostrar.forEach(figura => {
         const boton = document.createElement('button');
         boton.classList.add('boton-figura');
-        if (figurasActivas.has(figura.nombre)) boton.classList.add('activo');
+        
+        if (figurasActivas.has(figura.nombre)) {
+            boton.classList.add('activo');
+        }
         
         boton.textContent = figura.nombre;
         boton.dataset.nombre = figura.nombre; 
@@ -147,14 +167,14 @@ function generarBotonera(filtro = "") {
         botoneraElement.appendChild(boton);
     });
 
-    // 4. Añadir botón "+" si es necesario
+    // 6. BOTÓN EXPANDIR
     if (mostrarBotonMas) {
         const botonMas = document.createElement('button');
-        botonMas.classList.add('boton-expandir'); // Clase para darle estilo
-        botonMas.textContent = `+${figurasFiltradas.length - LIMITE_INICIAL} más`;
+        botonMas.classList.add('boton-expandir');
+        botonMas.textContent = `+${figurasFiltradas.length - figurasAMostrar.length} más`;
         botonMas.onclick = () => {
             mostrarTodo = true;
-            generarBotonera(); // Recarga la botonera completa
+            generarBotonera(); 
         };
         botoneraElement.appendChild(botonMas);
     }
