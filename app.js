@@ -117,25 +117,31 @@ function generarBotonera() {
 
 
 
+// 1. Primero, cambia la definición de la constante por una variable o función
+// Borra: const LIMITE_INICIAL = 30;
+
+// 2. Modifica la función generarBotonera para calcular el límite al momento
 function generarBotonera(filtro = "") {
     botoneraElement.innerHTML = ''; 
     const textoFiltro = filtro.toLowerCase();
 
-    // 1. Filtramos los datos según la búsqueda
+    // DETERMINAR LÍMITE DINÁMICO
+    // Si el ancho es menor a 600px, usamos 8, si no 30.
+    const limiteDinamico = window.innerWidth < 600 ? 8 : 30;
+
     let figurasFiltradas = figurasHistoricas.filter(f => 
         f.nombre.toLowerCase().includes(textoFiltro)
     );
 
-    // 2. Si no hay búsqueda, aplicamos el límite de 30
     let figurasAMostrar = figurasFiltradas;
     let mostrarBotonMas = false;
 
-    if (textoFiltro === "" && !mostrarTodo && figurasFiltradas.length > LIMITE_INICIAL) {
-        figurasAMostrar = figurasFiltradas.slice(0, LIMITE_INICIAL);
+    // Usamos limiteDinamico en lugar de LIMITE_INICIAL
+    if (textoFiltro === "" && !mostrarTodo && figurasFiltradas.length > limiteDinamico) {
+        figurasAMostrar = figurasFiltradas.slice(0, limiteDinamico);
         mostrarBotonMas = true;
     }
 
-    // 3. Crear los botones
     figurasAMostrar.forEach(figura => {
         const boton = document.createElement('button');
         boton.classList.add('boton-figura');
@@ -147,14 +153,14 @@ function generarBotonera(filtro = "") {
         botoneraElement.appendChild(boton);
     });
 
-    // 4. Añadir botón "+" si es necesario
     if (mostrarBotonMas) {
         const botonMas = document.createElement('button');
-        botonMas.classList.add('boton-expandir'); // Clase para darle estilo
-        botonMas.textContent = `+${figurasFiltradas.length - LIMITE_INICIAL} más`;
+        botonMas.classList.add('boton-expandir');
+        // Actualizamos el texto para que refleje cuántos faltan correctamente
+        botonMas.textContent = `+${figurasFiltradas.length - limiteDinamico} más`;
         botonMas.onclick = () => {
             mostrarTodo = true;
-            generarBotonera(); // Recarga la botonera completa
+            generarBotonera(); 
         };
         botoneraElement.appendChild(botonMas);
     }

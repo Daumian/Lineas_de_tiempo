@@ -2,6 +2,14 @@
 
 /* --- Línea de Tiempo (Visualización) --- */
 
+
+body {
+    padding-bottom: 100px; 
+}
+
+
+
+
 /* Contenedor principal para la visualización, ahora debe ser relative */
 .linea-tiempo-contenedor {
     display: flex;
@@ -157,15 +165,25 @@
 }
 
 .zoom-contenedor {
-    margin-bottom: 20px;
-    padding: 10px;
-    background-color: #3e3e3e;
-    border-radius: 5px;
+    position: fixed;         /* Lo hace fijo en la pantalla */
+    bottom: 20px;           /* Distancia desde el fondo */
+    left: 50%;              /* Centrado horizontal */
+    transform: translateX(-50%); /* Ajuste para centrado perfecto */
+    width: 90%;             /* Ancho en móviles */
+    max-width: 400px;       /* Ancho máximo en escritorio */
+    z-index: 2000;          /* Por encima de todo */
+    background-color: rgba(62, 62, 62, 0.9); /* Un poco de transparencia */
+    backdrop-filter: blur(5px); /* Efecto de desenfoque de fondo */
+    box-shadow: 0 -4px 15px rgba(0,0,0,0.3);
+    padding: 15px;
+    border-radius: 10px;
     color: white;
     display: flex;
     align-items: center;
     gap: 15px;
 }
+
+
 
 #zoom-slider {
     flex-grow: 1;
