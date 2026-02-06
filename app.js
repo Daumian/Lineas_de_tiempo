@@ -121,14 +121,22 @@ function generarBotonera(filtro = "") {
     botoneraElement.innerHTML = ''; 
     const textoFiltro = filtro.toLowerCase();
 
+
+    const limiteAdaptable = (window.innerWidth < 768) ? 8 : LIMITE_INICIAL;
+
     // 1. Filtramos los datos según la búsqueda
     let figurasFiltradas = figurasHistoricas.filter(f => 
         f.nombre.toLowerCase().includes(textoFiltro)
     );
 
-    // 2. Si no hay búsqueda, aplicamos el límite de 30
+    // 2. Si no hay búsqueda, aplicamos el límite de 30, si es mobil, mostramos solo 8
     let figurasAMostrar = figurasFiltradas;
     let mostrarBotonMas = false;
+
+    if (textoFiltro === "" && !mostrarTodo && figurasFiltradas.length > limiteAdaptable) {
+        figurasAMostrar = figurasFiltradas.slice(0, limiteAdaptable);
+        mostrarBotonMas = true;
+    }
 
     if (textoFiltro === "" && !mostrarTodo && figurasFiltradas.length > LIMITE_INICIAL) {
         figurasAMostrar = figurasFiltradas.slice(0, LIMITE_INICIAL);
