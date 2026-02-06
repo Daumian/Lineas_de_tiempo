@@ -283,3 +283,18 @@
     background-color: #e0a800;
     transform: scale(1.05);
 }
+
+/* Añade esto al final de tu style.css */
+@media (max-width: 600px) {
+    .linea-tiempo-contenedor {
+        padding-left: 50px; /* Menos espacio para la escala en móvil */
+        overflow-x: auto;   /* Permite scroll horizontal si activas muchas figuras */
+        display: flex;
+        align-items: flex-start;
+    }
+
+    .escala-año {
+        width: 45px;
+        font-size: 0.75rem;
+    }
+}
