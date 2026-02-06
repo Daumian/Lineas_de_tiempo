@@ -374,3 +374,48 @@
         width: 50px;
     }
 }
+
+@media (max-width: 600px) {
+    /* 1. Quitamos el recuadro blanco de los nombres y lo hacemos más sutil */
+    .nombre-figura {
+        background: #000 !important; /* Fondo negro */
+        color: #51d1f6 !important; /* Texto celeste */
+        border: 1px solid #51d1f6 !important;
+        font-size: 0.8rem !important;
+        padding: 5px !important;
+        width: 140px !important; /* Ancho fijo para que no ocupen todo */
+        margin: 0 auto;
+    }
+
+    /* 2. FORZAR QUE NO SE SOLAPEN */
+    .columna-figura {
+        min-width: 220px !important; /* La columna DEBE ser más ancha que el texto verde */
+        border-right: 1px dashed #444;
+    }
+
+    .evento {
+        width: 200px !important; /* El cuadro verde es un poco más chico que la columna */
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+    }
+
+    .caja-evento {
+        font-size: 0.75rem !important;
+        padding: 6px !important;
+        white-space: normal; /* Permite que el texto baje de renglón */
+        word-wrap: break-word;
+    }
+
+    /* 3. Permitir scroll lateral para ver las demás figuras */
+    .linea-tiempo-contenedor {
+        padding-left: 50px;
+        display: flex;
+        overflow-x: auto; /* IMPORTANTE: Esto permite deslizar hacia los lados */
+        align-items: flex-start;
+    }
+
+    .escala-año {
+        width: 40px !important;
+        font-size: 0.65rem !important;
+    }
+}

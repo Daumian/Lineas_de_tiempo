@@ -12,7 +12,6 @@ let figurasHistoricas = []; // Almacenará los datos del JSON
 let figurasActivas = new Set(); // Conjunto para saber qué figuras están visibles
 
 let mostrarTodo = false; // Estado para saber si expandimos la lista
-const LIMITE_INICIAL = 30; // Cantidad de botones a mostrar al inicio
 
 // Altura del contenedor para el mapeo de la escala de tiempo (debe coincidir con min-height en CSS)
 const ALTURA_CONTENEDOR_PX = 1200; 
@@ -116,34 +115,29 @@ function generarBotonera() {
 }
 
 
-
 function generarBotonera(filtro = "") {
     botoneraElement.innerHTML = ''; 
     const textoFiltro = filtro.toLowerCase();
 
-
+    // 1. Detectar el límite según el ancho de pantalla
     const limiteAdaptable = (window.innerWidth < 768) ? 8 : LIMITE_INICIAL;
 
-    // 1. Filtramos los datos según la búsqueda
+    // 2. Filtramos los datos según la búsqueda
     let figurasFiltradas = figurasHistoricas.filter(f => 
         f.nombre.toLowerCase().includes(textoFiltro)
     );
 
-    // 2. Si no hay búsqueda, aplicamos el límite de 30, si es mobil, mostramos solo 8
     let figurasAMostrar = figurasFiltradas;
     let mostrarBotonMas = false;
 
+    // 3. Aplicamos el límite SOLO si no hay búsqueda y no se ha dado a "Ver más"
+    // ELIMINADO EL SEGUNDO IF QUE SOBREESCRIBÍA TODO
     if (textoFiltro === "" && !mostrarTodo && figurasFiltradas.length > limiteAdaptable) {
         figurasAMostrar = figurasFiltradas.slice(0, limiteAdaptable);
         mostrarBotonMas = true;
     }
 
-    if (textoFiltro === "" && !mostrarTodo && figurasFiltradas.length > LIMITE_INICIAL) {
-        figurasAMostrar = figurasFiltradas.slice(0, LIMITE_INICIAL);
-        mostrarBotonMas = true;
-    }
-
-    // 3. Crear los botones
+    // 4. Crear los botones
     figurasAMostrar.forEach(figura => {
         const boton = document.createElement('button');
         boton.classList.add('boton-figura');
@@ -155,14 +149,15 @@ function generarBotonera(filtro = "") {
         botoneraElement.appendChild(boton);
     });
 
-    // 4. Añadir botón "+" si es necesario
+    // 5. Añadir botón "+" con el cálculo correcto
     if (mostrarBotonMas) {
         const botonMas = document.createElement('button');
-        botonMas.classList.add('boton-expandir'); // Clase para darle estilo
-        botonMas.textContent = `+${figurasFiltradas.length - LIMITE_INICIAL} más`;
+        botonMas.classList.add('boton-expandir'); 
+        // Usamos limiteAdaptable aquí también para que el número sea real
+        botonMas.textContent = `+${figurasFiltradas.length - limiteAdaptable} más`;
         botonMas.onclick = () => {
             mostrarTodo = true;
-            generarBotonera(); // Recarga la botonera completa
+            generarBotonera(); 
         };
         botoneraElement.appendChild(botonMas);
     }
