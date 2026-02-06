@@ -298,3 +298,33 @@
         font-size: 0.75rem;
     }
 }
+
+@media (max-width: 600px) {
+    .columna-figura {
+        min-width: 120px; /* Ancho mínimo para que no se encimen */
+        margin-right: 5px;
+    }
+
+    .evento-marcador {
+        font-size: 0.7rem; /* Texto más pequeño para los eventos */
+        padding: 4px;
+    }
+}
+
+@media (max-width: 600px) {
+    .botonera {
+        max-height: 200px;
+        overflow-y: auto;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+    }
+    
+    .boton-figura {
+        padding: 6px 10px;
+        font-size: 0.8rem;
+    }
+}

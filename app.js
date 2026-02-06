@@ -116,22 +116,26 @@ function generarBotonera() {
 }
 
 
-
 function generarBotonera(filtro = "") {
     botoneraElement.innerHTML = ''; 
     const textoFiltro = filtro.toLowerCase();
+
+    // --- CAMBIO AQUÍ: Definir límite según el dispositivo ---
+    // Si el ancho es menor a 768px (móvil/tablet), usamos 8, si no usamos tu LIMITE_INICIAL (30)
+    const limiteAdaptable = (window.innerWidth < 768) ? 8 : LIMITE_INICIAL;
 
     // 1. Filtramos los datos según la búsqueda
     let figurasFiltradas = figurasHistoricas.filter(f => 
         f.nombre.toLowerCase().includes(textoFiltro)
     );
 
-    // 2. Si no hay búsqueda, aplicamos el límite de 30
+    // 2. Si no hay búsqueda, aplicamos el límite adaptable
     let figurasAMostrar = figurasFiltradas;
     let mostrarBotonMas = false;
 
-    if (textoFiltro === "" && !mostrarTodo && figurasFiltradas.length > LIMITE_INICIAL) {
-        figurasAMostrar = figurasFiltradas.slice(0, LIMITE_INICIAL);
+    // --- CAMBIO AQUÍ: Usar limiteAdaptable en lugar de LIMITE_INICIAL ---
+    if (textoFiltro === "" && !mostrarTodo && figurasFiltradas.length > limiteAdaptable) {
+        figurasAMostrar = figurasFiltradas.slice(0, limiteAdaptable);
         mostrarBotonMas = true;
     }
 
@@ -147,14 +151,14 @@ function generarBotonera(filtro = "") {
         botoneraElement.appendChild(boton);
     });
 
-    // 4. Añadir botón "+" si es necesario
+    // 4. Añadir botón "+" si es necesario (usando el conteo correcto)
     if (mostrarBotonMas) {
         const botonMas = document.createElement('button');
-        botonMas.classList.add('boton-expandir'); // Clase para darle estilo
-        botonMas.textContent = `+${figurasFiltradas.length - LIMITE_INICIAL} más`;
+        botonMas.classList.add('boton-expandir'); 
+        botonMas.textContent = `+${figurasFiltradas.length - limiteAdaptable} más`;
         botonMas.onclick = () => {
             mostrarTodo = true;
-            generarBotonera(); // Recarga la botonera completa
+            generarBotonera(); 
         };
         botoneraElement.appendChild(botonMas);
     }
