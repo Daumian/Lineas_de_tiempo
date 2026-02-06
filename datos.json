@@ -1806,14 +1806,6 @@
     ]
   },
   {
-    "nombre": "Alejandro Magno",
-    "nacimiento": -356,
-    "eventos": [
-      { "año": -331, "descripcion": "Derrota a Darío III en la Batalla de Gaugamela, conquistando Persia." },
-      { "año": -323, "descripcion": "Muere en Babilonia tras crear uno de los imperios más grandes de la historia." }
-    ]
-  },
-  {
     "nombre": "Gengis Kan",
     "nacimiento": 1162,
     "eventos": [
