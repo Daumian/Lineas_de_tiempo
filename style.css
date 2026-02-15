@@ -206,6 +206,7 @@ body {
     transform: scale(1.05);
 }
 
+
 /* Controla el tamaño del hueco aquí */
 .espacio-inferior {
     height: 30px; /* Cambia este valor para más o menos espacio */
@@ -373,4 +374,38 @@ body {
     flex-grow: 1;
     height: 10px;
     cursor: pointer;
+}
+
+/* --- Estilos para la Página de Donar/Apoyo --- */
+
+.btn-ig { 
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); 
+}
+
+.btn-linkedin { 
+    background-color: #0077b5; 
+}
+
+/* Para asegurar que los botones de redes sociales tengan el mismo estilo que los demás */
+.btn-mail { 
+    background-color: #4CAF50; 
+}
+
+.btn-paypal { 
+    background-color: #0070ba; 
+}
+
+.btn-mp { 
+    background-color: #009ee3; 
+}
+
+/* Consistencia de tamaño para los botones de contacto */
+.opcion .btn {
+    min-width: 120px;
+    text-align: center;
+    transition: opacity 0.2s;
+}
+
+.opcion .btn:hover {
+    opacity: 0.9;
 }
