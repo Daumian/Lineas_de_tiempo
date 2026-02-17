@@ -284,9 +284,22 @@
     "nombre": "Marilyn Monroe",
     "nacimiento": 1926,
     "eventos": [
-      { "año": 1926, "descripcion": "Nacimiento en Los Ángeles, California." },
-      { "año": 1953, "descripcion": "Protagoniza 'Los caballeros las prefieren rubias'." },
-      { "año": 1962, "descripcion": "Fallecimiento en Brentwood, Los Ángeles." }
+      { "año": 1926, "descripcion": "Nacimiento en Los Ángeles, Estados Unidos." },
+      { "año": 1950, "descripcion": "Salta a la fama con papeles secundarios en Hollywood." },
+      { "año": 1953, "descripcion": "Protagoniza 'Los caballeros las prefieren rubias' y se convierte en símbolo sexual mundial." },
+      { "año": 1955, "descripcion": "Funda su propia productora para tener control creativo." },
+      { "año": 1962, "descripcion": "Fallecimiento en circunstancias polémicas." }
+    ]
+  },
+  {
+    "nombre": "Lenny Bruce",
+    "nacimiento": 1925,
+    "eventos": [
+      { "año": 1925, "descripcion": "Nacimiento en Nueva York, Estados Unidos." },
+      { "año": 1957, "descripcion": "Introduce un estilo de comedia crudo y provocador." },
+      { "año": 1961, "descripcion": "Es arrestado varias veces por obscenidad." },
+      { "año": 1964, "descripcion": "Se convierte en símbolo de la libertad de expresión." },
+      { "año": 1966, "descripcion": "Fallece por sobredosis; luego es reivindicado históricamente." }
     ]
   },
   {
