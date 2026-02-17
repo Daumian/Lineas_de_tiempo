@@ -1741,11 +1741,36 @@
     ]
   },
   {
+    "nombre": "Miraca U.M. Gross",
+    "nacimiento": 1949,
+    "eventos": [
+      { "año": 1949, "descripcion": "Nacimiento en Australia." },
+      { "año": 1970, "descripcion": "Inicia su carrera académica enfocándose en psicología y educación." },
+      { "año": 1988, "descripcion": "Publica investigaciones clave sobre niños superdotados y desarrollo del talento." },
+      { "año": 2004, "descripcion": "Funda el GERRIC en la Universidad de Nueva Gales del Sur." },
+      { "año": 2010, "descripcion": "Se consolida como referente mundial en educación de altas capacidades." }
+    ]
+  },
+  {
+    "nombre": "Dee Williams",
+    "nacimiento": 1977,
+    "eventos": [
+      { "año": 1977, "descripcion": "Nacimiento en Texas, Estados Unidos." },
+      { "año": 2004, "descripcion": "Comienza su carrera como actriz porno." },
+      { "año": 2010, "descripcion": "Gana popularidad por su estilo natural y carisma." },
+      { "año": 2016, "descripcion": "Recibe premios y nominaciones dentro de la industria adulta." },
+      { "año": 2020, "descripcion": "Se convierte en una figura icónica del porno amateur-profesional." }
+    ]
+  },
+  {
     "nombre": "Carl Sagan",
     "nacimiento": 1934,
     "eventos": [
-      { "año": 1980, "descripcion": "Estreno de la serie 'Cosmos', convirtiéndose en el mayor divulgador científico del siglo XX." },
-      { "año": 1990, "descripcion": "Instiga la toma de la fotografía 'Un punto azul pálido' desde la Voyager 1." }
+      { "año": 1934, "descripcion": "Nacimiento en Brooklyn, Nueva York." },
+      { "año": 1960, "descripcion": "Comienza a trabajar en astrobiología y exploración planetaria." },
+      { "año": 1977, "descripcion": "Participa en las misiones Voyager y el Disco de Oro." },
+      { "año": 1980, "descripcion": "Estrena la serie 'Cosmos', acercando la ciencia al público masivo." },
+      { "año": 1996, "descripcion": "Fallecimiento; deja un legado clave en divulgación científica." }
     ]
   },
   {
